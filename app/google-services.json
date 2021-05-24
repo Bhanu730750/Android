@@ -1,0 +1,146 @@
+{
+  "project_info": {
+    "project_number": "30160478681",
+    "firebase_url": "https://funzo-d6b3b.firebaseio.com",
+    "project_id": "funzo-d6b3b",
+    "storage_bucket": "funzo-d6b3b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30160478681:android:d10822cc2d94c36ffa39c8",
+        "android_client_info": {
+          "package_name": "com.ssoftwares.funzo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30160478681-m7a846t0999tbp1sq1kavg3delk311k7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ssoftwares.funzo",
+            "certificate_hash": "0c97cae1b7585498fb1065db26a73edc56c72271"
+          }
+        },
+        {
+          "client_id": "30160478681-vbptabcsj8vd811om6t8qcvkij03vcvt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ssoftwares.funzo",
+            "certificate_hash": "f53bfae229f6061e29bdbdbfab0cb7bf712df607"
+          }
+        },
+        {
+          "client_id": "30160478681-lriphckctn4lst0kfrad6avreoigc8bj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDxbcnHlT0NqZX9OW_J5ClAq0N4c-PTBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30160478681-lriphckctn4lst0kfrad6avreoigc8bj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30160478681:android:019069be0805a693fa39c8",
+        "android_client_info": {
+          "package_name": "com.ssoftwares.funzodriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30160478681-kr5ogp6ahakibvmvnq8gmp9494q8jt5c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ssoftwares.funzodriver",
+            "certificate_hash": "f53bfae229f6061e29bdbdbfab0cb7bf712df607"
+          }
+        },
+        {
+          "client_id": "30160478681-on73rh7ds34qji3mnflr34dfvir84hrr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ssoftwares.funzodriver",
+            "certificate_hash": "0c97cae1b7585498fb1065db26a73edc56c72271"
+          }
+        },
+        {
+          "client_id": "30160478681-lriphckctn4lst0kfrad6avreoigc8bj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDxbcnHlT0NqZX9OW_J5ClAq0N4c-PTBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30160478681-lriphckctn4lst0kfrad6avreoigc8bj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30160478681:android:03a8b50e6fa86968fa39c8",
+        "android_client_info": {
+          "package_name": "com.ssoftwares.funzomerchant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30160478681-eigl0b29jkfoeqdloa9eq3206vn1d1gk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ssoftwares.funzomerchant",
+            "certificate_hash": "0c97cae1b7585498fb1065db26a73edc56c72271"
+          }
+        },
+        {
+          "client_id": "30160478681-m7bqku4qok5o5btd2umd9j8qenjcfkh3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ssoftwares.funzomerchant",
+            "certificate_hash": "f53bfae229f6061e29bdbdbfab0cb7bf712df607"
+          }
+        },
+        {
+          "client_id": "30160478681-lriphckctn4lst0kfrad6avreoigc8bj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDxbcnHlT0NqZX9OW_J5ClAq0N4c-PTBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30160478681-lriphckctn4lst0kfrad6avreoigc8bj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
