@@ -112,6 +112,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="$10"
+                            android:id="@+id/button1"
                             android:textColor="@color/white"
                             android:textSize="18dp" />
                     </RelativeLayout>
@@ -135,6 +136,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="$20"
+                            android:id="@+id/button2"
                             android:textColor="@color/white"
                             android:textSize="18dp" />
                     </RelativeLayout>
@@ -158,6 +160,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="$50"
+                            android:id="@+id/button3"
                             android:textColor="@color/white"
                             android:textSize="18dp" />
                     </RelativeLayout>
@@ -181,6 +184,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="$100"
+                            android:id="@+id/button4"
                             android:textColor="@color/white"
                             android:textSize="18dp" />
                     </RelativeLayout>
