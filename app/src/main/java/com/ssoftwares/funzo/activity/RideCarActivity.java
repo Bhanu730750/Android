@@ -83,6 +83,7 @@ import com.ssoftwares.funzo.models.ServiceModel;
 import com.ssoftwares.funzo.models.TransModel;
 import com.ssoftwares.funzo.models.User;
 import com.ssoftwares.funzo.utils.PicassoTrustAll;
+import com.ssoftwares.funzo.utils.SettingPreference;
 import com.ssoftwares.funzo.utils.Utility;
 import com.ssoftwares.funzo.utils.api.FCMHelper;
 
@@ -666,7 +667,10 @@ public class RideCarActivity extends AppCompatActivity implements OnMapReadyCall
                 .accessToken(Mapbox.getAccessToken() != null ? Mapbox.getAccessToken() : getString(R.string.mapbox_access_token))
                 .placeOptions(PlaceOptions.builder()
                         .backgroundColor(Color.parseColor("#EEEEEE"))
-                        .limit(15)
+                        .limit(20)
+                        .country("in")
+                        .proximity(Point.fromLngLat(78.8718,
+                                21.7679))
                         .build(PlaceOptions.MODE_CARDS))
                 .build(RideCarActivity.this);
         startActivityForResult(intent, request_code);
@@ -1232,7 +1236,7 @@ public class RideCarActivity extends AppCompatActivity implements OnMapReadyCall
 
         Log.e("REQUEST TO DRIVER", message.getData().toString());
 
-        FCMHelper.sendMessage(Constant.FCM_KEY, message).enqueue(new okhttp3.Callback() {
+        FCMHelper.sendMessage(new SettingPreference(this).getFCM_KEY(), message).enqueue(new okhttp3.Callback() {
             @Override
             public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response) {
                 Log.e("REQUEST TO DRIVER", message.getData().toString());

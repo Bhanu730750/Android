@@ -217,7 +217,7 @@ public class WithdrawActivity extends AppCompatActivity {
         message.setTo(regIDTujuan);
         message.setData(notif);
 
-        FCMHelper.sendMessage(Constant.FCM_KEY, message).enqueue(new okhttp3.Callback() {
+        FCMHelper.sendMessage(new SettingPreference(this).getFCM_KEY(), message).enqueue(new okhttp3.Callback() {
             @Override
             public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response) {
             }

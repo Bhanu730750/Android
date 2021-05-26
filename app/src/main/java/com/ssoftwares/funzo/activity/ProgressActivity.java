@@ -76,6 +76,7 @@ import com.ssoftwares.funzo.models.TransModel;
 import com.ssoftwares.funzo.models.User;
 import com.ssoftwares.funzo.utils.NetworkManager;
 import com.ssoftwares.funzo.utils.PicassoTrustAll;
+import com.ssoftwares.funzo.utils.SettingPreference;
 import com.ssoftwares.funzo.utils.Utility;
 import com.ssoftwares.funzo.utils.api.FCMHelper;
 import com.ssoftwares.funzo.utils.api.ServiceGenerator;
@@ -814,7 +815,7 @@ public class ProgressActivity extends AppCompatActivity implements OnMapReadyCal
         message.setData(response);
 
 
-        FCMHelper.sendMessage(Constant.FCM_KEY, message).enqueue(new okhttp3.Callback() {
+        FCMHelper.sendMessage(new SettingPreference(this).getFCM_KEY(), message).enqueue(new okhttp3.Callback() {
             @Override
             public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response) {
             }
@@ -837,7 +838,7 @@ public class ProgressActivity extends AppCompatActivity implements OnMapReadyCal
         message.setData(response);
 
 
-        FCMHelper.sendMessage(Constant.FCM_KEY, message).enqueue(new okhttp3.Callback() {
+        FCMHelper.sendMessage(new SettingPreference(this).getFCM_KEY(), message).enqueue(new okhttp3.Callback() {
             @Override
             public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response) {
             }

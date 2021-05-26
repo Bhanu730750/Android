@@ -32,6 +32,7 @@ import com.ssoftwares.funzo.models.DriverModel;
 import com.ssoftwares.funzo.models.ServiceModel;
 import com.ssoftwares.funzo.models.TransSendModel;
 import com.ssoftwares.funzo.models.User;
+import com.ssoftwares.funzo.utils.SettingPreference;
 import com.ssoftwares.funzo.utils.Utility;
 import com.ssoftwares.funzo.utils.api.FCMHelper;
 import com.ssoftwares.funzo.utils.api.ServiceGenerator;
@@ -650,7 +651,7 @@ public class SendDetailActivity extends AppCompatActivity {
         message.setData(request);
 
 
-        FCMHelper.sendMessage(Constant.FCM_KEY, message).enqueue(new okhttp3.Callback() {
+        FCMHelper.sendMessage(new SettingPreference(this).getFCM_KEY(), message).enqueue(new okhttp3.Callback() {
             @Override
             public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response){
             }

@@ -65,6 +65,7 @@ import com.ssoftwares.funzo.models.ServiceModel;
 import com.ssoftwares.funzo.models.TransModel;
 import com.ssoftwares.funzo.models.User;
 import com.ssoftwares.funzo.utils.PicassoTrustAll;
+import com.ssoftwares.funzo.utils.SettingPreference;
 import com.ssoftwares.funzo.utils.Utility;
 import com.ssoftwares.funzo.utils.api.FCMHelper;
 import com.ssoftwares.funzo.utils.api.ServiceGenerator;
@@ -308,7 +309,10 @@ public class RentCarActivity extends AppCompatActivity implements OnMapReadyCall
                 .accessToken(Mapbox.getAccessToken() != null ? Mapbox.getAccessToken() : getString(R.string.mapbox_access_token))
                 .placeOptions(PlaceOptions.builder()
                         .backgroundColor(Color.parseColor("#EEEEEE"))
-                        .limit(15)
+                        .limit(20)
+                        .country("in")
+                        .proximity(Point.fromLngLat(78.8718,
+                                21.7679))
                         .build(PlaceOptions.MODE_CARDS))
                 .build(RentCarActivity.this);
         startActivityForResult(intent, 1);
@@ -1010,7 +1014,7 @@ public class RentCarActivity extends AppCompatActivity implements OnMapReadyCall
         message.setData(request);
 
 
-        FCMHelper.sendMessage(Constant.FCM_KEY, message).enqueue(new okhttp3.Callback() {
+        FCMHelper.sendMessage(new SettingPreference(this).getFCM_KEY(), message).enqueue(new okhttp3.Callback() {
             @Override
             public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response) {
             }

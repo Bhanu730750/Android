@@ -719,9 +719,9 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
         final FCMMessage message = new FCMMessage();
         message.setTo(driverToSend.getRegId());
         message.setData(request);
+        String FCM_KEY = new SettingPreference(this).getFCM_KEY();
 
-
-        FCMHelper.sendMessage(Constant.FCM_KEY, message).enqueue(new okhttp3.Callback() {
+        FCMHelper.sendMessage(FCM_KEY, message).enqueue(new okhttp3.Callback() {
             @Override
             public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response) {
 

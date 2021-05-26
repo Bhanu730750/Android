@@ -349,7 +349,8 @@ public class SendAudio {
         message.setTo(regIDTujuan);
         message.setData(chat);
 
-        FCMHelper.sendMessage(Constant.FCM_KEY, message).enqueue(new okhttp3.Callback() {
+
+        FCMHelper.sendMessage(new SettingPreference(context).getFCM_KEY(), message).enqueue(new okhttp3.Callback() {
             @Override
             public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response) {
                 Log.e("REQUEST TO DRIVER", message.getData().toString());

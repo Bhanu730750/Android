@@ -33,6 +33,41 @@ public class GetHomeResponseJson {
     @SerializedName("currency")
     @Expose
     private String currency;
+    @SerializedName("fcm_key")
+    @Expose
+    private String fcm_key;
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public void setBalance(String balance) {
+        this.balance = balance;
+    }
+
+    public String getFcm_key() {
+        return fcm_key;
+    }
+
+    public void setFcm_key(String fcm_key) {
+        this.fcm_key = fcm_key;
+    }
+
+    public String getCurrency_text() {
+        return currency_text;
+    }
+
+    public void setCurrency_text(String currency_text) {
+        this.currency_text = currency_text;
+    }
+
+    public List<ServiceModel> getService() {
+        return service;
+    }
+
+    public void setService(List<ServiceModel> service) {
+        this.service = service;
+    }
 
     @SerializedName("currency_text")
     @Expose

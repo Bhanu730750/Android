@@ -76,7 +76,7 @@ public interface UserService {
     Call<PrivacyResponseJson> privacy(@Body PrivacyRequestJson param);
 
     @POST("customerapi/home")
-    Call<GetHomeResponseJson> home(@Body GetHomeRequestJson param);
+    Call<GetHomeResponseJson>home(@Body GetHomeRequestJson param);
 
     @POST("customerapi/topupstripe")
     Call<TopupResponseJson> topup(@Body TopupRequestJson param);

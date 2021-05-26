@@ -9,6 +9,7 @@ import com.ssoftwares.funzo.constants.Constant;
 public class SettingPreference {
 
     private static String CURRENCY = "$";
+    private static String FCM_KEY = "";
     private static String ABOUTUS = "ABOUTUS";
     private static String EMAIL = "EMAIL";
     private static String PHONE = "PHONE";
@@ -95,6 +96,16 @@ public class SettingPreference {
         editor = pref.edit();
         editor.putString(CURRENCY, string);
         editor.commit();
+    }
+
+    public void updateFCM(String string) {
+        editor = pref.edit();
+        editor.putString(FCM_KEY, string);
+        editor.commit();
+    }
+
+    public String getFCM_KEY() {
+        return pref.getString(FCM_KEY, "");
     }
 
     public void updatePaypal(String string) {

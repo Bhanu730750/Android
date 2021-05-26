@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -62,11 +63,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+
 import io.realm.Realm;
 import me.relex.circleindicator.CircleIndicator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
 
 public class HomeFragment extends Fragment {
 
@@ -76,8 +80,8 @@ public class HomeFragment extends Fragment {
     private Integer[] colors = null;
     private ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     private CircleIndicator circleIndicator, circleIndicatorreview;
-    private RecyclerView rvCategory, rvberita,rvmerchant,rvcatmerchantpromo,rvcatmerchantnear,rvmerchantnear;
-    private LinearLayout llslider, promoslider, llrating, llberita,llmerchant, llmerchantnear,shimlistpromo,shimlistcatpromo,shimlistnear,shimlistcatnear;
+    private RecyclerView rvCategory, rvberita, rvmerchant, rvcatmerchantpromo, rvcatmerchantnear, rvmerchantnear;
+    private LinearLayout llslider, promoslider, llrating, llberita, llmerchant, llmerchantnear, shimlistpromo, shimlistcatpromo, shimlistnear, shimlistcatnear;
     private ServiceItem serviceItem;
     private RatingItem ratingItem;
     private NewsItem newsItem;
@@ -85,7 +89,7 @@ public class HomeFragment extends Fragment {
     private MerchantNearItem merchantNearItem;
     private CatMerchantNearItem catMerchantNearItem;
     private CatMerchantItem catMerchantItem;
-    private ShimmerFrameLayout mShimmerCat, shimerPromo, shimerreview, shimberita,shimmerchantpromo,getShimmerchantnear;
+    private ShimmerFrameLayout mShimmerCat, shimerPromo, shimerreview, shimberita, shimmerchantpromo, getShimmerchantnear;
     private TextView balance;
     private TextView nodatapromo;
     private TextView nodatanear;
@@ -168,11 +172,11 @@ public class HomeFragment extends Fragment {
         Calendar now = Calendar.getInstance();
         int totalMenitNow = (now.get(Calendar.HOUR_OF_DAY) * 60) + now.get(Calendar.MINUTE);
 
-        if (totalMenitNow >= totalpagi && totalMenitNow <= totalsiang && totalMenitNow <= totalsore && totalMenitNow <= totalmalam ) {
+        if (totalMenitNow >= totalpagi && totalMenitNow <= totalsiang && totalMenitNow <= totalsore && totalMenitNow <= totalmalam) {
             nighttext.setText("Good Morning");
-        } else if (totalMenitNow >= totalpagi && totalMenitNow >= totalsiang && totalMenitNow <= totalsore && totalMenitNow <= totalmalam ) {
+        } else if (totalMenitNow >= totalpagi && totalMenitNow >= totalsiang && totalMenitNow <= totalsore && totalMenitNow <= totalmalam) {
             nighttext.setText("Good Afternoon");
-        } else if (totalMenitNow >= totalpagi && totalMenitNow >= totalsiang && totalMenitNow >= totalsore && totalMenitNow <= totalmalam ) {
+        } else if (totalMenitNow >= totalpagi && totalMenitNow >= totalsiang && totalMenitNow >= totalsore && totalMenitNow <= totalmalam) {
             nighttext.setText("Good Afternoon");
         } else {
             nighttext.setText("Good Night");
@@ -201,8 +205,6 @@ public class HomeFragment extends Fragment {
         rvcatmerchantpromo.setHasFixedSize(true);
         rvcatmerchantpromo.setNestedScrollingEnabled(false);
         rvcatmerchantpromo.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-
-
 
 
         Integer[] colors_temp = {
@@ -307,7 +309,7 @@ public class HomeFragment extends Fragment {
         });
 
         shimmershow();
-        if(getLocation != null) {
+        if (getLocation != null) {
             gethome(getLocation);
         } else {
             new Handler().postDelayed(() -> {
@@ -317,7 +319,7 @@ public class HomeFragment extends Fragment {
                     getLocation.setLatitude(Double.parseDouble(sp.getSetting()[16]));
                     getLocation.setLongitude(Double.parseDouble(sp.getSetting()[17]));
                 }
-                if(getLocation != null) {
+                if (getLocation != null) {
                     gethome(getLocation);
                 }
             }, 3000);
@@ -328,9 +330,6 @@ public class HomeFragment extends Fragment {
 
         return getView;
     }
-
-
-
 
 
     private void shimmershow() {
@@ -374,7 +373,6 @@ public class HomeFragment extends Fragment {
     }
 
 
-
     private void gethome(final Location location) {
         User loginUser = BaseApp.getInstance(context).getLoginUser();
         UserService userService = ServiceGenerator.createService(
@@ -392,6 +390,10 @@ public class HomeFragment extends Fragment {
                         shimmertutup();
                         PayuModel payu = response.body().getPayu().get(0);
                         sp.updateCurrency(response.body().getCurrency());
+                        sp.updateFCM(response.body().getFcm_key());
+                        String FCM_KEY = new SettingPreference(context).getFCM_KEY();
+                       // Toast.makeText(context, "" + FCM_KEY, Toast.LENGTH_SHORT).show();
+
                         sp.updateabout(response.body().getAboutus());
                         sp.updateemail(response.body().getEmail());
                         sp.updatephone(response.body().getPhone());

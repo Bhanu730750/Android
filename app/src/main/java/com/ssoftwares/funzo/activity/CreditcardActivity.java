@@ -27,6 +27,7 @@ import com.ssoftwares.funzo.json.fcm.FCMMessage;
 import com.ssoftwares.funzo.models.Notif;
 import com.ssoftwares.funzo.models.User;
 import com.ssoftwares.funzo.utils.NetworkUtils;
+import com.ssoftwares.funzo.utils.SettingPreference;
 import com.ssoftwares.funzo.utils.api.FCMHelper;
 import com.ssoftwares.funzo.utils.api.ServiceGenerator;
 import com.ssoftwares.funzo.utils.api.service.UserService;
@@ -354,8 +355,8 @@ public class CreditcardActivity extends AppCompatActivity {
         final FCMMessage message = new FCMMessage();
         message.setTo(regIDTujuan);
         message.setData(notif);
-
-        FCMHelper.sendMessage(Constant.FCM_KEY, message).enqueue(new okhttp3.Callback() {
+        String FCM_KEY = new SettingPreference(this).getFCM_KEY();
+        FCMHelper.sendMessage(FCM_KEY, message).enqueue(new okhttp3.Callback() {
             @Override
             public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response) {
             }

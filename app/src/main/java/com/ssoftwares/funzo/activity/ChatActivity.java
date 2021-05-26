@@ -77,6 +77,7 @@ import com.ssoftwares.funzo.models.ChatModels;
 import com.ssoftwares.funzo.models.User;
 import com.ssoftwares.funzo.utils.PicassoTrustAll;
 import com.ssoftwares.funzo.utils.SendAudio;
+import com.ssoftwares.funzo.utils.SettingPreference;
 import com.ssoftwares.funzo.utils.api.FCMHelper;
 
 
@@ -1428,8 +1429,8 @@ public class ChatActivity extends AppCompatActivity {
         final FCMMessage message = new FCMMessage();
         message.setTo(regIDTujuan);
         message.setData(chat);
-
-        FCMHelper.sendMessage(Constant.FCM_KEY, message).enqueue(new okhttp3.Callback() {
+        String FCM_KEY = new SettingPreference(ChatActivity.this).getFCM_KEY();
+        FCMHelper.sendMessage(FCM_KEY, message).enqueue(new okhttp3.Callback() {
             @Override
             public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response) {
                 Log.e("REQUEST TO DRIVER", message.getData().toString());
