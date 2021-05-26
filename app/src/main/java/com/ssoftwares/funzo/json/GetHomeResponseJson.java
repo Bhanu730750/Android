@@ -33,6 +33,7 @@ public class GetHomeResponseJson {
     @SerializedName("currency")
     @Expose
     private String currency;
+
     @SerializedName("fcm_key")
     @Expose
     private String fcm_key;

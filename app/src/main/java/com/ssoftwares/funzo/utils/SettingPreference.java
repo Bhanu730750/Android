@@ -9,7 +9,7 @@ import com.ssoftwares.funzo.constants.Constant;
 public class SettingPreference {
 
     private static String CURRENCY = "$";
-    private static String FCM_KEY = "";
+    private static String FCM_KEY = "FCM_KEY";
     private static String ABOUTUS = "ABOUTUS";
     private static String EMAIL = "EMAIL";
     private static String PHONE = "PHONE";
