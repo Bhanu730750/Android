@@ -35,8 +35,8 @@ public class Utility {
                     if (originalString.contains(",")) {
                         originalString = originalString.replaceAll(",", "");
                     }
-                    if (originalString.contains(sp.getSetting()[0]+" ")) {
-                        originalString = originalString.replaceAll(sp.getSetting()[0]+" ", "");
+                    if (originalString.contains(sp.getSetting()[0] + " ")) {
+                        originalString = originalString.replaceAll(sp.getSetting()[0] + " ", "");
                     }
                     if (originalString.contains(sp.getSetting()[0])) {
                         originalString = originalString.replaceAll(sp.getSetting()[0], "");
@@ -55,17 +55,25 @@ public class Utility {
                         editText.setText("");
                         editText.setSelection(editText.getText().length());
                     } else if (String.valueOf(longval).length() == 1) {
-                        editText.setText(sp.getSetting()[0]+"0.0" + String.valueOf(longval));
+                        editText.setText(sp.getSetting()[0] + "0.0" + String.valueOf(longval));
                         editText.setSelection(editText.getText().length());
                     } else if (String.valueOf(longval).length() == 2) {
-                        editText.setText(sp.getSetting()[0]+"0." + String.valueOf(longval));
+                        editText.setText(sp.getSetting()[0] + "0." + String.valueOf(longval));
                         editText.setSelection(editText.getText().length());
                     } else {
 
-                        SettingPreference sp = new SettingPreference(context);
+                        Double getprice = Double.valueOf(longval);
                         DecimalFormat formatter = new DecimalFormat("#,###,##");
-                        String formattedString = formatter.format(longval);
-                        editText.setText(sp.getSetting()[0] + formattedString.replace(",","."));
+                        String formattedString = formatter.format(getprice);
+                        String[] splitString = formattedString.split(",");
+                        int lengthOfSplit = splitString.length;
+                        StringBuilder beforePoint = new StringBuilder();
+                        for (int i = 0; i < lengthOfSplit - 1; i++) {
+                            beforePoint.append(',').append(splitString[i]);
+                        }
+                        beforePoint.deleteCharAt(0);
+                        editText.setText(sp.getSetting()[0] +
+                                beforePoint.toString() + "." + splitString[lengthOfSplit - 1]);
                         editText.setSelection(editText.getText().length());
                     }
                 } catch (NumberFormatException nfe) {
@@ -89,14 +97,23 @@ public class Utility {
     public static void currencyTXT(TextView text, String nomninal, Context context) {
         SettingPreference sp = new SettingPreference(context);
         if (nomninal.length() == 1) {
-            text.setText(sp.getSetting()[0]+"0.0" + nomninal);
+            text.setText(sp.getSetting()[0] + "0.0" + nomninal);
         } else if (nomninal.length() == 2) {
-            text.setText(sp.getSetting()[0]+"0." + nomninal);
+            text.setText(sp.getSetting()[0] + "0." + nomninal);
         } else {
             Double getprice = Double.valueOf(nomninal);
             DecimalFormat formatter = new DecimalFormat("#,###,##");
             String formattedString = formatter.format(getprice);
-            text.setText(sp.getSetting()[0] + formattedString.replace(",","."));
+            String[] splitString = formattedString.split(",");
+            int lengthOfSplit = splitString.length;
+            StringBuilder beforePoint = new StringBuilder();
+            for (int i = 0; i < lengthOfSplit - 1; i++) {
+                beforePoint.append(',').append(splitString[i]);
+            }
+            beforePoint.deleteCharAt(0);
+
+            text.setText(sp.getSetting()[0] +
+                    beforePoint.toString() + "." + splitString[lengthOfSplit - 1]);
         }
     }
 
